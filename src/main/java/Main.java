@@ -18,6 +18,7 @@ public class Main {
             int choice = 0;
             boolean choiceChecker = false;
 
+            // validate user input (int only)
             while (!choiceChecker) {
                 try {
                     choice = scanner.nextInt();

@@ -79,7 +79,7 @@ public class DAO {
         }
     }
 
-    // Update Name
+    // Update Price
     public boolean updateProductPrice(int id, double newPrice) {
         String query = "UPDATE product SET unitprice = ? WHERE id = ?";
         try (Connection conn = connect();
@@ -95,7 +95,7 @@ public class DAO {
         }
     }
 
-    // Update Name
+    // Update Quantity
     public boolean updateProductQuantity(int id, int newQuantity) {
         String query = "UPDATE product SET quantity = ? WHERE id = ?";
         try (Connection conn = connect();

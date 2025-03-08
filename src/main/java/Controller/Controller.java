@@ -10,6 +10,8 @@ public class Controller {
     private final DAO productDAO;
     private final View productView;
     private final Scanner scanner;
+
+    //booleans for validating input values
     private boolean checkName = false;
     private boolean checkPrice = false;
     private boolean checkQuantity = false;
@@ -24,6 +26,7 @@ public class Controller {
         productView.displayAllProducts(productDAO.getAllProducts());
     }
 
+
     public void updateProductName() {
         System.out.print("Enter Product ID: ");
         int id = scanner.nextInt();
@@ -34,10 +37,13 @@ public class Controller {
 
         if (product != null) {
             checkName = false;
+            // invalid input loop
             while(!checkName) {
                 System.out.print("Enter New Name: ");
                 String newName = scanner.nextLine();
+                //validate name input
                 if (verifyName(newName)) {
+                    //stop the invalid input loop
                     checkName = true;
                     boolean success = productDAO.updateProductName(id, newName);
                     productView.showUpdateSuccess(success);
